@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
@@ -8,7 +10,8 @@ import javax.swing.JPanel;
 public class Tablero extends JPanel{
 	
 	private Bloque[][] tablero;
-	
+	private int turno =1;
+
 	public Tablero(){
 		super();
 		this.setPreferredSize(new Dimension(696,696));
@@ -17,22 +20,64 @@ public class Tablero extends JPanel{
 		for(int y=0;y<4;y++){
 			for(int x=0;x<8;x++){
 				if(y==0){
-					tablero[x][y]=new Bloque(new FichaN());	
+					tablero[x][y]=new Bloque(-1,x,y);	
 				}
 				else if(y==1 && x%2==1){
-					tablero[x][y]=new Bloque(new FichaN());
+					tablero[x][y]=new Bloque(-1,x,y);
 				}
 				else if(y==3){
-					tablero[x][y]=new Bloque(new FichaB());
+					tablero[x][y]=new Bloque(1,x,y);
 				}
 				else if(y==2 && x%2==0){
-					tablero[x][y]=new Bloque(new FichaB());
+					tablero[x][y]=new Bloque(1,x,y);
 				}
 				else{
-					tablero[x][y]=new Bloque(new Ficha());
+					tablero[x][y]=new Bloque(0,x,y);
 				}
 				Bloque t=tablero[x][y];
 				this.add(t);
+				t.addMouseListener(new MouseListener() {
+					
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						if(((Bloque) e.getSource()).getFicha()>=turno && turno==1){
+							turno=-1;
+							System.out.println(turno);
+						}
+						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
+							turno=1;
+							System.out.println(turno);
+
+						}
+						
+						
+						
+					}
+				});
 				if(x%2==0){
 					t.setBounds(x*87,y*174+87,87,87);
 				}
