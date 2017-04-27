@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class VentanaTablero extends JFrame{
 	
 	public VentanaTablero(){
@@ -11,6 +12,7 @@ public class VentanaTablero extends JFrame{
 		this.setVisible(true);
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args){
 		VentanaTablero ven = new VentanaTablero();
 	}

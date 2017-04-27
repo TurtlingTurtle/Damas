@@ -1,8 +1,8 @@
 
 public class FichaN extends Ficha{
 	
-	public FichaN(int x, int y) {
-		super(x, y);
+	public FichaN() {
+		super();
 		super.tipo=-1;
 	}
 	
