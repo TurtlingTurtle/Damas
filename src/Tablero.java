@@ -83,7 +83,7 @@ public class Tablero extends JPanel{
 	public int checarBloques(int x, int y){
 		return this.tablero[x][y].getFicha();
 	}
-	/*public void moverse(Bloque bloque) throws ArrayIndexOutOfBoundsException{
+	/*public void checarBloques(Bloque bloque) throws ArrayIndexOutOfBoundsException{
 		int x = bloque.getXB();
 		int y = bloque.getYB();
 			if((x%2)==1){
@@ -100,7 +100,7 @@ public class Tablero extends JPanel{
 			}
 	}*/
 	
-	public void moverse(Bloque bloque){
+	public void checarBloques(Bloque bloque){
 		int x = bloque.getXB();
 		int y = bloque.getYB();
 		if(x>0 && x<7){
