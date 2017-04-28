@@ -83,7 +83,7 @@ public class Tablero extends JPanel{
 	public int checarBloques(int x, int y){
 		return this.tablero[x][y].getFicha();
 	}
-	public void moverse(Bloque bloque) throws ArrayIndexOutOfBoundsException{
+	/*public void moverse(Bloque bloque) throws ArrayIndexOutOfBoundsException{
 		int x = bloque.getXB();
 		int y = bloque.getYB();
 			if((x%2)==1){
@@ -98,6 +98,47 @@ public class Tablero extends JPanel{
 				tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
 				tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
 			}
+	}*/
+	
+	public void moverse(Bloque bloque){
+		int x = bloque.getXB();
+		int y = bloque.getYB();
+		if(x>0 && x<7){
+			if((x%2)==1){
+				if(y!=3){
+					tablero[x][y].setBlockUL(tablero[x-1][y+1].getFicha());
+					tablero[x][y].setBlockUR(tablero[x+1][y+1].getFicha());
+					tablero[x][y].setBlockDL(tablero[x-1][y].getFicha());
+					tablero[x][y].setBlockDR(tablero[x+1][y].getFicha());
+				}
+			}
+			else{
+				if(y>0 && y<4){
+					tablero[x][y].setBlockUL(tablero[x-1][y].getFicha());
+					tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
+					tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
+					tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
+				}
+			}
+		}
+		if(x==0){
+			if(y==0){
+				tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
+			}
+			else{
+				tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
+				tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
+			}
+		}
+		else if(x==7){
+			if(y==3){
+				tablero[x][y].setBlockDL(tablero[x-1][y].getFicha());
+			}
+			else{
+				tablero[x][y].setBlockUL(tablero[x-1][y].getFicha());
+				tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
+			}
+		}
 	}
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
