@@ -11,7 +11,7 @@ public class Tablero extends JPanel{
 	
 	private Bloque[][] tablero;
 	private int turno =1;
-
+	
 	public Tablero(){
 		super();
 		this.setPreferredSize(new Dimension(696,696));
@@ -41,25 +41,21 @@ public class Tablero extends JPanel{
 					@Override
 					public void mouseReleased(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
 					}
 					
 					@Override
 					public void mousePressed(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
 					}
 					
 					@Override
 					public void mouseExited(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
 					}
 					
 					@Override
 					public void mouseEntered(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
+						// TODO Auto-generated method stub	
 					}
 					
 					@Override
@@ -71,11 +67,7 @@ public class Tablero extends JPanel{
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
 							System.out.println(turno);
-
 						}
-						
-						
-						
 					}
 				});
 				if(x%2==0){
@@ -88,9 +80,27 @@ public class Tablero extends JPanel{
 		}
 	}
 	
+	public int checarBloques(int x, int y){
+		return this.tablero[x][y].getFicha();
+	}
+	public void moverse(Bloque bloque) throws ArrayIndexOutOfBoundsException{
+		int x = bloque.getXB();
+		int y = bloque.getYB();
+			if((x%2)==1){
+				tablero[x][y].setBlockUL(tablero[x-1][y+1].getFicha());
+				tablero[x][y].setBlockUR(tablero[x+1][y+1].getFicha());
+				tablero[x][y].setBlockDL(tablero[x-1][y].getFicha());
+				tablero[x][y].setBlockDR(tablero[x+1][y].getFicha());
+			}
+			else if((x%2)==0){
+				tablero[x][y].setBlockUL(tablero[x-1][y].getFicha());
+				tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
+				tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
+				tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
+			}
+	}
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 696, 696);
-
 	}
 }
