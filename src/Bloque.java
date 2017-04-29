@@ -40,6 +40,10 @@ public class Bloque extends JPanel {
 	public int getYB(){
 		return this.y;
 	}
+<<<<<<< Updated upstream
+=======
+	
+>>>>>>> Stashed changes
 	public void paintComponent(Graphics g){
 		g.setColor(color);
 		g.fillRect(0, 0, 87, 87);
@@ -48,6 +52,14 @@ public class Bloque extends JPanel {
 			g.fillOval(6, 6, 75, 75);
 		}
 		else if(ficha==1){
+			g.setColor(new Color(30,50,255));
+			g.fillOval(6, 6, 75, 75);
+		}
+		else if(ficha == -2){
+			g.setColor(Color.RED);
+			g.fillOval(6, 6, 75, 75);
+		}
+		else if(ficha == 2){
 			g.setColor(new Color(30,50,255));
 			g.fillOval(6, 6, 75, 75);
 		}

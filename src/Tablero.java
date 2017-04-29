@@ -63,8 +63,12 @@ public class Tablero extends JPanel{
 						if(((Bloque) e.getSource()).getFicha()>=turno && turno==1){
 							turno=-1;
 							System.out.println(turno);
+<<<<<<< Updated upstream
 							checarBloques((Bloque) e.getSource());
 							System.out.println((Bloque)e.getSource());
+=======
+							((Bloque) e.getSource()).setColor();
+>>>>>>> Stashed changes
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
