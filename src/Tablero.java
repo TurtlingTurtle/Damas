@@ -67,22 +67,11 @@ public class Tablero extends JPanel{
 							panel.setColor2();
 							((Bloque) e.getSource()).setFicha(2);
 							System.out.println(turno);
-<<<<<<< HEAD
-<<<<<<< HEAD
-							
-
-=======
-=======
->>>>>>> origin/master
 							int[] temp=checarBloque((Bloque) e.getSource());
 							System.out.println("UpLeft"+temp[0]);
 							System.out.println("UpRight"+temp[1]);
 							System.out.println("DownLeft"+temp[2]);
 							System.out.println("DownRight"+temp[3]);
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
@@ -148,15 +137,9 @@ public class Tablero extends JPanel{
 				temp[2]=tablero[x-1][y].getFicha();
 			}
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 		return temp;
-	}*/
-	
-	public int[] checarBloque(Bloque bloque){
-		return null;
-		
 	}
+	
 	/*public void comer(Bloque bloque){
 		this.checarBloques(bloque);
 		int UL = bloque.getBlockUL();
@@ -214,7 +197,7 @@ public class Tablero extends JPanel{
 			}
 		}
 		return temp;
-	}
+	}*/
 	public void moverse(Bloque bloque){
 		checarBloque(bloque);
 	}
