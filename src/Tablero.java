@@ -215,6 +215,9 @@ public class Tablero extends JPanel{
 		}
 		return temp;
 	}
+	public void moverse(Bloque bloque){
+		checarBloque(bloque);
+	}
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 696, 696);
