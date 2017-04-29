@@ -63,12 +63,20 @@ public class Tablero extends JPanel{
 						if(((Bloque) e.getSource()).getFicha()>=turno && turno==1){
 							turno=-1;
 							System.out.println(turno);
-							checarBloques((Bloque) e.getSource());
-							System.out.println((Bloque)e.getSource());
+							int[] temp=checarBloque((Bloque) e.getSource());
+							System.out.println("UpLeft"+temp[0]);
+							System.out.println("UpRight"+temp[1]);
+							System.out.println("DownLeft"+temp[2]);
+							System.out.println("DownRight"+temp[3]);
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
 							System.out.println(turno);
+							int[] temp=checarBloque((Bloque) e.getSource());
+							System.out.println("UpLeft"+temp[0]);
+							System.out.println("UpRight"+temp[1]);
+							System.out.println("DownLeft"+temp[2]);
+							System.out.println("DownRight"+temp[3]);
 						}
 					}
 				});
@@ -81,133 +89,89 @@ public class Tablero extends JPanel{
 			}
 		}
 	}
-	
-	public int checarBloques(int x, int y){
-		return this.tablero[x][y].getFicha();
-	}
-	/*public void checarBloques(Bloque bloque) throws ArrayIndexOutOfBoundsException{
+	public int[] checarBloque(Bloque bloque){
 		int x = bloque.getXB();
 		int y = bloque.getYB();
-			if((x%2)==1){
-				tablero[x][y].setBlockUL(tablero[x-1][y+1].getFicha());
-				tablero[x][y].setBlockUR(tablero[x+1][y+1].getFicha());
-				tablero[x][y].setBlockDL(tablero[x-1][y].getFicha());
-				tablero[x][y].setBlockDR(tablero[x+1][y].getFicha());
-			}
-			else if((x%2)==0){
-				tablero[x][y].setBlockUL(tablero[x-1][y].getFicha());
-				tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
-				tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
-				tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
-			}
-	}*/
-	
-	/*public int[] checarBloques(Bloque bloque){
-		int x = bloque.getXB();
-		int y = bloque.getYB();
-		int[] temp= new int[4];
+		int[] temp = new int[4];
 		if(x>0 && x<7){
-			if((x%2)==1){
-				if(y!=0){
+			//checa todos los de en medio
+			if(y>0 && y<3){
+				if((x%2)==1){
 					temp[0]=tablero[x-1][y-1].getFicha();
 					temp[1]=tablero[x+1][y-1].getFicha();
-					temp[2]=tablero[x-1][y].getFicha();//bien
+					temp[2]=tablero[x-1][y].getFicha();
 					temp[3]=tablero[x+1][y].getFicha();
 				}
-			}
-			else{
-				if(y>0 && y<4){
+				else{
 					temp[0]=tablero[x-1][y].getFicha();
 					temp[1]=tablero[x+1][y].getFicha();
-					temp[2]=tablero[x-1][y-1].getFicha();
-					temp[3]=tablero[x+1][y-1].getFicha();
+					temp[2]=tablero[x-1][y+1].getFicha();
+					temp[3]=tablero[x+1][y+1].getFicha();
 				}
 			}
 		}
-		if(x==0){
-			if(y==0){
+		//checa si la fila es la fila 0
+		else if(y==0){
+			if((x%2)==0 && x!=0){
+				temp[0]=tablero[x-1][y].getFicha();
 				temp[1]=tablero[x+1][y].getFicha();
+				temp[2]=tablero[x-1][y+1].getFicha();
+				temp[3]=tablero[x+1][y+1].getFicha();
+			}
+			else if(x==0){
+				temp[1]=tablero[x+1][y].getFicha();
+				temp[3]=tablero[x+1][y+1].getFicha();
+			}
+			else if((x%2)==1 && x!=7){
+				temp[2]=tablero[x-1][y].getFicha();
+				temp[3]=tablero[x+1][y].getFicha();
 			}
 			else{
-				temp[1]=tablero[x+1][y].getFicha();
-				temp[3]=tablero[x+1][y-1].getFicha();
-			}
-		}
-		else if(x==7){
-			if(y==3){
 				temp[2]=tablero[x-1][y].getFicha();
 			}
-			else{
+		}
+		else if(y>0 && y<3){
+			if((x%2)==0 && x!=0){
 				temp[0]=tablero[x-1][y].getFicha();
-				temp[2]=tablero[x-1][y-1].getFicha();
+				temp[1]=tablero[x+1][y].getFicha();
+				temp[2]=tablero[x-1][y+1].getFicha();
+				temp[3]=tablero[x+1][y+1].getFicha();
+			}
+			else if(x==0){
+				temp[1]=tablero[x+1][y].getFicha();
+				temp[3]=tablero[x+1][y+1].getFicha();
+			}
+			else if((x%2)==1 && x!=7){
+				temp[2]=tablero[x-1][y].getFicha();
+				temp[3]=tablero[x+1][y].getFicha();
+			}
+			else{
+				temp[0]=tablero[x-1][y-1].getFicha();
+				temp[2]=tablero[x-1][y].getFicha();
+			}
+		}
+		//checa si la fila es la fila 3
+		else if(y==3){
+			if((x%2)==1 && x!=7){
+				temp[0]=tablero[x-1][y-1].getFicha();
+				temp[1]=tablero[x+1][y-1].getFicha();
+				temp[2]=tablero[x-1][y].getFicha();
+				temp[3]=tablero[x+1][y].getFicha();
+			}
+			else if(x==7){
+				temp[0]=tablero[x-1][y-1].getFicha();
+				temp[2]=tablero[x-1][y].getFicha();
+			}
+			else if((x%2)==0 && x!=0){
+				temp[0]= tablero[x-1][y].getFicha();
+				temp[1]= tablero[x-1][y].getFicha();
+			}
+			else if(x==0){
+				temp[1]=tablero[x+1][y].getFicha();
 			}
 		}
 		return temp;
-	}*/
-	
-	public int[] checarBloque(Bloque bloque){
-		
 	}
-	/*public void comer(Bloque bloque){
-		this.checarBloques(bloque);
-		int UL = bloque.getBlockUL();
-		int UR = bloque.getBlockUR();
-		int DL = bloque.getBlockDL();
-		int DR = bloque.getBlockDR();
-		if(turno == 1){
-			if(bloque.getYB()!=3){
-				
-			}
-		}
-	}
-	public void moverSencillo(Bloque bloque){ //no he considerado el comer
-		this.checarBloques(bloque);
-		int ficha = bloque.getFicha();
-		int UL = bloque.getBlockUL();
-		int UR = bloque.getBlockUR();
-		int DL = bloque.getBlockDL();
-		int DR = bloque.getBlockDR();
-		int x = bloque.getXB();
-		int y = bloque.getYB();
-		if(ficha==-1){
-			if((x%2)==0){
-				if(UL==0){
-					tablero[x-1][y].setColor();
-				}
-				if(UR==0){
-					tablero[x+1][y].setColor();
-				}
-			}
-			else if((x%2)==1){
-				if(UL==0){
-					tablero[x-1][y+1].setColor();
-				}
-				if(UR==0){
-					tablero[x+1][y+1].setColor();
-				}
-			}
-		}
-		else if(ficha==1){
-			if((x%2)==0){
-				if(DL==0){
-					tablero[x-1][y-1].setColor();
-				}
-				if(DR==0){
-					tablero[x+1][y-1].setColor();
-				}
-			}
-			else if((x%2)==1){
-				if(DL==0){
-					tablero[x-1][y].setColor();
-				}
-				if(UR==0){
-					tablero[x+1][y].setColor();
-				}
-			}
-		}
-		
-	}
-	*/
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 696, 696);
