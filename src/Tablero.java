@@ -68,14 +68,20 @@ public class Tablero extends JPanel{
 							((Bloque) e.getSource()).setFicha(2);
 							System.out.println(turno);
 <<<<<<< HEAD
+<<<<<<< HEAD
 							
 
 =======
+=======
+>>>>>>> origin/master
 							int[] temp=checarBloque((Bloque) e.getSource());
 							System.out.println("UpLeft"+temp[0]);
 							System.out.println("UpRight"+temp[1]);
 							System.out.println("DownLeft"+temp[2]);
 							System.out.println("DownRight"+temp[3]);
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
@@ -143,6 +149,7 @@ public class Tablero extends JPanel{
 			}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return temp;
 	}*/
 	
@@ -160,12 +167,17 @@ public class Tablero extends JPanel{
 			if(bloque.getYB()!=3){
 				
 =======
+=======
+>>>>>>> origin/master
 		else if(y>0 && y<3){
 			if((x%2)==0 && x!=0){
 				temp[0]=tablero[x-1][y].getFicha();
 				temp[1]=tablero[x+1][y].getFicha();
 				temp[2]=tablero[x-1][y+1].getFicha();
 				temp[3]=tablero[x+1][y+1].getFicha();
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 			}
 			else if(x==0){
