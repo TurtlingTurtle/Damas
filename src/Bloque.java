@@ -8,20 +8,12 @@ import javax.swing.JPanel;
 public class Bloque extends JPanel {
 	private int ficha,
 				x,
-				y,
-				blockUR,
-				blockUL,
-				blockDR,
-				blockDL;
+				y;
 	private Color color;
 	public Bloque(int ficha,int x, int y){
 		super();
 		this.x=x;
 		this.y=y;
-		this.blockUR=3;
-		this.blockUL=3;
-		this.blockDR=3;
-		this.blockDL=3;
 		this.ficha=ficha;
 		this.color=Color.BLACK;
 		this.setPreferredSize(new Dimension(87, 87));
@@ -47,30 +39,6 @@ public class Bloque extends JPanel {
 	}
 	public int getYB(){
 		return this.y;
-	}
-	public int getBlockUR(){
-		return this.blockUR;
-	}
-	public int getBlockUL(){
-		return this.blockUL;
-	}
-	public int getBlockDR(){
-		return this.blockDR;
-	}
-	public int getBlockDL(){
-		return this.blockDL;
-	}
-	public void setBlockUL(int blockUL){
-		this.blockUL=blockUL;
-	}
-	public void setBlockUR(int blockUR){
-		this.blockUR=blockUR;
-	}
-	public void setBlockDL(int blockDL){
-		this.blockDL=blockDL;
-	}
-	public void setBlockDR(int blockDR){
-		this.blockDR=blockDR;
 	}
 	public void paintComponent(Graphics g){
 		g.setColor(color);

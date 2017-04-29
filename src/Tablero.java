@@ -63,6 +63,8 @@ public class Tablero extends JPanel{
 						if(((Bloque) e.getSource()).getFicha()>=turno && turno==1){
 							turno=-1;
 							System.out.println(turno);
+							checarBloques((Bloque) e.getSource());
+							System.out.println((Bloque)e.getSource());
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
@@ -100,47 +102,53 @@ public class Tablero extends JPanel{
 			}
 	}*/
 	
-	public void checarBloques(Bloque bloque){
+	/*public int[] checarBloques(Bloque bloque){
 		int x = bloque.getXB();
 		int y = bloque.getYB();
+		int[] temp= new int[4];
 		if(x>0 && x<7){
 			if((x%2)==1){
-				if(y!=3){
-					tablero[x][y].setBlockUL(tablero[x-1][y+1].getFicha());
-					tablero[x][y].setBlockUR(tablero[x+1][y+1].getFicha());
-					tablero[x][y].setBlockDL(tablero[x-1][y].getFicha());
-					tablero[x][y].setBlockDR(tablero[x+1][y].getFicha());
+				if(y!=0){
+					temp[0]=tablero[x-1][y-1].getFicha();
+					temp[1]=tablero[x+1][y-1].getFicha();
+					temp[2]=tablero[x-1][y].getFicha();//bien
+					temp[3]=tablero[x+1][y].getFicha();
 				}
 			}
 			else{
 				if(y>0 && y<4){
-					tablero[x][y].setBlockUL(tablero[x-1][y].getFicha());
-					tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
-					tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
-					tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
+					temp[0]=tablero[x-1][y].getFicha();
+					temp[1]=tablero[x+1][y].getFicha();
+					temp[2]=tablero[x-1][y-1].getFicha();
+					temp[3]=tablero[x+1][y-1].getFicha();
 				}
 			}
 		}
 		if(x==0){
 			if(y==0){
-				tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
+				temp[1]=tablero[x+1][y].getFicha();
 			}
 			else{
-				tablero[x][y].setBlockUR(tablero[x+1][y].getFicha());
-				tablero[x][y].setBlockDR(tablero[x+1][y-1].getFicha());
+				temp[1]=tablero[x+1][y].getFicha();
+				temp[3]=tablero[x+1][y-1].getFicha();
 			}
 		}
 		else if(x==7){
 			if(y==3){
-				tablero[x][y].setBlockDL(tablero[x-1][y].getFicha());
+				temp[2]=tablero[x-1][y].getFicha();
 			}
 			else{
-				tablero[x][y].setBlockUL(tablero[x-1][y].getFicha());
-				tablero[x][y].setBlockDL(tablero[x-1][y-1].getFicha());
+				temp[0]=tablero[x-1][y].getFicha();
+				temp[2]=tablero[x-1][y-1].getFicha();
 			}
 		}
+		return temp;
+	}*/
+	
+	public int[] checarBloque(Bloque bloque){
+		
 	}
-	public void comer(Bloque bloque){
+	/*public void comer(Bloque bloque){
 		this.checarBloques(bloque);
 		int UL = bloque.getBlockUL();
 		int UR = bloque.getBlockUR();
@@ -199,6 +207,7 @@ public class Tablero extends JPanel{
 		}
 		
 	}
+	*/
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 696, 696);
