@@ -62,16 +62,13 @@ public class Tablero extends JPanel{
 					public void mouseClicked(MouseEvent e) {
 						if(((Bloque) e.getSource()).getFicha()>=turno && turno==1){
 							turno=-1;
+							((Bloque) e.getSource()).setFicha(2);
 							System.out.println(turno);
-<<<<<<< Updated upstream
-							checarBloques((Bloque) e.getSource());
-							System.out.println((Bloque)e.getSource());
-=======
-							((Bloque) e.getSource()).setColor();
->>>>>>> Stashed changes
+
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
+							((Bloque) e.getSource()).setFicha(-2);
 							System.out.println(turno);
 						}
 					}
@@ -150,6 +147,7 @@ public class Tablero extends JPanel{
 	}*/
 	
 	public int[] checarBloque(Bloque bloque){
+		return null;
 		
 	}
 	/*public void comer(Bloque bloque){
