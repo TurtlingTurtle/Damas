@@ -32,27 +32,16 @@ public class Panel extends JPanel{
 		g.setColor(color2);
 		g.drawString("JUGADOR 2", 500, 40);
 	}
-<<<<<<< HEAD
-	public void setColor2(){
-=======
+
 	public void setColor2() {
->>>>>>> origin/master
 		this.color2 = Color.RED;
 		this.color1=Color.BLACK;
 		repaint();
 	}
-<<<<<<< HEAD
-	public void setColor1(){
-		this.color1 = new Color(30,50,255);
-		this.color2 = Color.BLACK;
-		repaint();
-		
-=======
 	public void setColor1() {
 		this.color1 = new Color(30,50,255);
 		this.color2=Color.BLACK;
 		repaint();
->>>>>>> origin/master
 	}
 	
 }
