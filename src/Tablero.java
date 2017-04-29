@@ -11,9 +11,11 @@ public class Tablero extends JPanel{
 	
 	private Bloque[][] tablero;
 	private int turno =1;
+	private Panel panel;
 	
-	public Tablero(){
+	public Tablero(Panel panel){
 		super();
+		this.panel=panel;
 		this.setPreferredSize(new Dimension(696,696));
 		this.setLayout(null);
 		this.tablero = new Bloque[8][4];
@@ -171,6 +173,9 @@ public class Tablero extends JPanel{
 			}
 		}
 		return temp;
+	}
+	public void moverse(Bloque bloque){
+		checarBloque(bloque);
 	}
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
