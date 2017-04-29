@@ -140,6 +140,65 @@ public class Tablero extends JPanel{
 			}
 		}
 	}
+	public void comer(Bloque bloque){
+		this.checarBloques(bloque);
+		int UL = bloque.getBlockUL();
+		int UR = bloque.getBlockUR();
+		int DL = bloque.getBlockDL();
+		int DR = bloque.getBlockDR();
+		if(turno == 1){
+			if(bloque.getYB()!=3){
+				
+			}
+		}
+	}
+	public void moverSencillo(Bloque bloque){ //no he considerado el comer
+		this.checarBloques(bloque);
+		int ficha = bloque.getFicha();
+		int UL = bloque.getBlockUL();
+		int UR = bloque.getBlockUR();
+		int DL = bloque.getBlockDL();
+		int DR = bloque.getBlockDR();
+		int x = bloque.getXB();
+		int y = bloque.getYB();
+		if(ficha==-1){
+			if((x%2)==0){
+				if(UL==0){
+					tablero[x-1][y].setColor();
+				}
+				if(UR==0){
+					tablero[x+1][y].setColor();
+				}
+			}
+			else if((x%2)==1){
+				if(UL==0){
+					tablero[x-1][y+1].setColor();
+				}
+				if(UR==0){
+					tablero[x+1][y+1].setColor();
+				}
+			}
+		}
+		else if(ficha==1){
+			if((x%2)==0){
+				if(DL==0){
+					tablero[x-1][y-1].setColor();
+				}
+				if(DR==0){
+					tablero[x+1][y-1].setColor();
+				}
+			}
+			else if((x%2)==1){
+				if(DL==0){
+					tablero[x-1][y].setColor();
+				}
+				if(UR==0){
+					tablero[x+1][y].setColor();
+				}
+			}
+		}
+		
+	}
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 696, 696);

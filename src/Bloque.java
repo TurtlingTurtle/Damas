@@ -18,10 +18,10 @@ public class Bloque extends JPanel {
 		super();
 		this.x=x;
 		this.y=y;
-		this.blockUR=0;
-		this.blockUL=0;
-		this.blockDR=0;
-		this.blockDL=0;
+		this.blockUR=3;
+		this.blockUL=3;
+		this.blockDR=3;
+		this.blockDL=3;
 		this.ficha=ficha;
 		this.color=Color.BLACK;
 		this.setPreferredSize(new Dimension(87, 87));
@@ -38,6 +38,12 @@ public class Bloque extends JPanel {
 	}
 	public int getXB(){
 		return this.x;
+	}
+	public void setXB(int xB){
+		this.x=xB;
+	}
+	public void setYB(int yB){
+		this.y=yB;
 	}
 	public int getYB(){
 		return this.y;
