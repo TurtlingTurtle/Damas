@@ -64,15 +64,30 @@ public class Tablero extends JPanel{
 					public void mouseClicked(MouseEvent e) {
 						if(((Bloque) e.getSource()).getFicha()>=turno && turno==1){
 							turno=-1;
+							panel.setColor2();
+							((Bloque) e.getSource()).setFicha(2);
 							System.out.println(turno);
+<<<<<<< HEAD
+<<<<<<< HEAD
+							
+
+=======
+=======
+>>>>>>> origin/master
 							int[] temp=checarBloque((Bloque) e.getSource());
 							System.out.println("UpLeft"+temp[0]);
 							System.out.println("UpRight"+temp[1]);
 							System.out.println("DownLeft"+temp[2]);
 							System.out.println("DownRight"+temp[3]);
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
 						}
 						else if(((Bloque) e.getSource()).getFicha()<=turno && turno==-1){
 							turno=1;
+							panel.setColor1();
+							((Bloque) e.getSource()).setFicha(-2);
 							System.out.println(turno);
 							int[] temp=checarBloque((Bloque) e.getSource());
 							System.out.println("UpLeft"+temp[0]);
@@ -88,6 +103,7 @@ public class Tablero extends JPanel{
 				else{
 					t.setBounds(x*87,y*174,87,87);
 				}
+				
 			}
 		}
 	}
@@ -132,12 +148,37 @@ public class Tablero extends JPanel{
 				temp[2]=tablero[x-1][y].getFicha();
 			}
 		}
+<<<<<<< HEAD
+<<<<<<< HEAD
+		return temp;
+	}*/
+	
+	public int[] checarBloque(Bloque bloque){
+		return null;
+		
+	}
+	/*public void comer(Bloque bloque){
+		this.checarBloques(bloque);
+		int UL = bloque.getBlockUL();
+		int UR = bloque.getBlockUR();
+		int DL = bloque.getBlockDL();
+		int DR = bloque.getBlockDR();
+		if(turno == 1){
+			if(bloque.getYB()!=3){
+				
+=======
+=======
+>>>>>>> origin/master
 		else if(y>0 && y<3){
 			if((x%2)==0 && x!=0){
 				temp[0]=tablero[x-1][y].getFicha();
 				temp[1]=tablero[x+1][y].getFicha();
 				temp[2]=tablero[x-1][y+1].getFicha();
 				temp[3]=tablero[x+1][y+1].getFicha();
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
 			}
 			else if(x==0){
 				temp[1]=tablero[x+1][y].getFicha();
