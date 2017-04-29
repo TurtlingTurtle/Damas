@@ -137,31 +137,12 @@ public class Tablero extends JPanel{
 				temp[2]=tablero[x-1][y].getFicha();
 			}
 		}
-		return temp;
-	}
-	
-	/*public void comer(Bloque bloque){
-		this.checarBloques(bloque);
-		int UL = bloque.getBlockUL();
-		int UR = bloque.getBlockUR();
-		int DL = bloque.getBlockDL();
-		int DR = bloque.getBlockDR();
-		if(turno == 1){
-			if(bloque.getYB()!=3){
-				
-=======
-=======
->>>>>>> origin/master
 		else if(y>0 && y<3){
 			if((x%2)==0 && x!=0){
 				temp[0]=tablero[x-1][y].getFicha();
 				temp[1]=tablero[x+1][y].getFicha();
 				temp[2]=tablero[x-1][y+1].getFicha();
 				temp[3]=tablero[x+1][y+1].getFicha();
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 			}
 			else if(x==0){
 				temp[1]=tablero[x+1][y].getFicha();
@@ -197,7 +178,7 @@ public class Tablero extends JPanel{
 			}
 		}
 		return temp;
-	}*/
+	}
 	public void moverse(Bloque bloque){
 		checarBloque(bloque);
 	}
